@@ -255,7 +255,7 @@ public class PaymentActivity extends Activity {
 
 			HttpPost httpPost = new HttpPost(authenticateRootUrl + paymentInfo.getClientId());
 
-			httpPost.setHeader("X-Mifos-Platform-TenantId", "default");
+			httpPost.setHeader("X-Mifos-Platform-TenantId", "pgcable");
 			httpPost.setHeader("Authorization", "Basic "
 					+ "YWRtaW46YWRtaW5AMTIz");
 			httpPost.setHeader("Content-Type", "application/json");

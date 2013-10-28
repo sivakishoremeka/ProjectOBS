@@ -118,7 +118,7 @@ public class ClientSearchActivity extends Activity {
 
 			HttpGet httpGet = new HttpGet(authenticateRootUrl + id);
 
-			 httpGet.setHeader("X-Mifos-Platform-TenantId", "default");
+			 httpGet.setHeader("X-Mifos-Platform-TenantId", "pgcable");
 			 httpGet.setHeader("Authorization", "Basic "
 					+ "YWRtaW46YWRtaW5AMTIz");
 			 httpGet.setHeader("Content-Type", "application/json");

@@ -228,7 +228,7 @@ public class LoginActivity extends Activity {
 	    	String passwordLabel = "&password=";
 	    	
 	    	HttpPost httpPost = new HttpPost(authenticateRootUrl + username + passwordLabel + password);
-	    	httpPost.setHeader("X-Mifos-Platform-TenantId", "default");
+	    	httpPost.setHeader("X-Mifos-Platform-TenantId", "pgcable");
 			httpPost.setHeader("Authorization", "Basic " +"YWRtaW46YWRtaW5AMTIz" );//"YmlsbGluZzpiaWxsaW5nYWRtaW5AMTM="
 			httpPost.setHeader("Content-Type", "application/json");
 	    	Log.i("callAuthenticateApi", "Calling " + httpPost.getURI());
