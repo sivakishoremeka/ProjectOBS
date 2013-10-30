@@ -69,6 +69,7 @@ public class PaymentActivity extends Activity {
 	private SharedPreferences mPrefs;
 	private SharedPreferences.Editor mPrefsEditor; 
 	protected final static String PREFS_FILE = "mifosAppPrefs";
+	public final static String RESOURCE_ID = "resourceId";
 	public final static String CLIENT_ID = "clientId";
 	public final static String CLIENT_NAME="clientName";
 	public final static String PAYMENT_CODE = "paymentCode";
@@ -228,6 +229,7 @@ public class PaymentActivity extends Activity {
 					// Start the ClientListActivity
 					mPrefs = getSharedPreferences(PREFS_FILE, 0);
 			        mPrefsEditor = mPrefs.edit(); 
+			        mPrefsEditor.putString(RESOURCE_ID,result+"");
 			        mPrefsEditor.putString(CLIENT_ID,ClientId+"");
 			        mPrefsEditor.putString(CLIENT_NAME,payinfo.getClientName());
 			        mPrefsEditor.putString(PAYMENT_CODE,payinfo.getPaymentCode());

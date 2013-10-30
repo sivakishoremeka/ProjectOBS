@@ -96,71 +96,55 @@ class ConnectedThread extends Thread {
 		}
 	}
 	public void PrintdataFun(PrintInfo printinfo){
-		String PrintData;
-
-		/* PrintData  =       "       OBS PAY APP      "+
-		                    "========================"+ 
-				            "ClientId :"+printinfo.getClientId()+"           ";
-		 if(printinfo.getClientName().length()<=12)
-			 PrintData += "ClientName :"+printinfo.getClientName();
-		 else
-		 {
-			 PrintData += "ClientName :"+printinfo.getClientName().substring(0,12); 
-		     PrintData += ""+printinfo.getClientName().substring(12,printinfo.getClientName().length());
-		 }
-		 PrintData+="PayMode :"+printinfo.getPaymentCode()+"             ";
-		 Date date= new Date();
-		 SimpleDateFormat  formater = new SimpleDateFormat("dd MMMM yyyy");
-		 PrintData+="PaymentDate:"+(formater.format(date));
-		 PrintData+="Amount :"+printinfo.getAmountPaid()+"            ";*/
-
-		/*   PrintData =      "this is the first packet                  "+
-                            "this is the secon packet                  "+
-                            "this is the third packet                  "+
-                            "this is the fourt packet                  "+
-                            "this is the fifth packet                  "+
-                            "this is the sixth packet                  ";*/
-		PrintData  =       "        PG Cable        "+//"       OBS PAY APP      "+
-			               "          Delhi         "+
-				"========================"+
-				
-						 
-				"ClientId :"+printinfo.getClientId()+"              ".substring(printinfo.getClientId().length());
-
-		String ClientName = "ClientName :"+printinfo.getClientName();
-
+		String PrintData1;
+        String PrintData2;
+        Date date= new Date();
+		SimpleDateFormat  formater = new SimpleDateFormat("dd MMM yyyy");
+		PrintData1 =        "        PG Cable        ";
+        PrintData2 = 	    "  Pharganj, New Delhi.  "+
+		                    "========================"+
+				            "                        ";
+        PrintData2 +=       " Receipt Id: " +printinfo.getReceiptId()+"           ".substring(printinfo.getReceiptId().length());
+        PrintData2 +=	    "                        ";
+        PrintData2 +=       " Date  : "+(formater.format(date))+"    ";
+        PrintData2 +=	    "                        ";
+		PrintData2 +=       " Id    : "+printinfo.getClientId()+"               ".substring(printinfo.getClientId().length());
+		PrintData2 +=       "                        ";
+		String ClientName = " Name  : "+printinfo.getClientName();
+                                
 		if(ClientName.length()<=24){
-			PrintData += ClientName+"                        ".substring(ClientName.length()-1);
+			PrintData2 += ClientName+"                        ".substring(ClientName.length()-1);
 		}
 		else
 		{
 			while(ClientName.length()/24>=1)
 			{
-				PrintData +=ClientName.substring(0, 24);
-				ClientName=ClientName.substring(24);
+				PrintData2 +=ClientName.substring(0, 24);
+				ClientName="         "+ClientName.substring(24);
 			}
 			if(ClientName.length()<24){
-				PrintData += ClientName+"                        ".substring(ClientName.length());
+				PrintData2 += ClientName+"                        ".substring(ClientName.length());
 			}
-
-			if(printinfo.getPaymentCode().equalsIgnoreCase("CA"))
-				PrintData+="PayMode :CASH"+"                        ".substring(printinfo.getClientId().length()+11-1);
-			else
-				PrintData+="PayMode :CHEQUE"+"                        ".substring(printinfo.getClientId().length()+15-1);
-			Date date= new Date();
-			SimpleDateFormat  formater = new SimpleDateFormat("dd MMM yyyy");
-			PrintData+="PaymentDate :"+(formater.format(date));
-			PrintData+="Amount :"+printinfo.getAmountPaid()+"                           ".substring(printinfo.getClientId().length()+8);;
-			PrintData+="                        ";
-			PrintData+="                        ";
-			PrintData+="Agent :"+printinfo.getName()+"               ".substring(printinfo.getClientId().length()+8);;
 		}
+		PrintData2 +=	    "                        ";
+			if(printinfo.getPaymentCode().equalsIgnoreCase("CA"))
+				PrintData2+=" Mode  : CASH"+"                        ".substring(printinfo.getClientId().length()+13-1);
+			else
+				PrintData2+=" Mode  : CHEQUE"+"                        ".substring(printinfo.getClientId().length()+16-1);
+		PrintData2 +=	    "                        ";
+		PrintData2 +=       " Amount: "+printinfo.getAmountPaid()+"                           ".substring(printinfo.getClientId().length()+8);;
+		PrintData2 +=       "                        ";
+		PrintData2 +=       " Agent :"+printinfo.getName()+"               ".substring(printinfo.getClientId().length()+9-1);
+		PrintData2 +=        "========================";
 		try {
 			Thread.sleep(2000);			
 		} catch (Exception e) {
 			e.printStackTrace();			
 		}			
-		PrinterData(PrintData,1);
+		Log.i("ConnectedThread", PrintData1);
+		Log.i("ConnectedThread", PrintData2);
+		PrinterData(PrintData1,4);
+		PrinterData(PrintData2,1);
 		//PrinterData(PrintData,2);
 		// PrinterData(PrintData,3);
 		//  PrinterData(PrintData,4);                  

@@ -3,6 +3,7 @@ package com.obs.object;
 public class PrintInfo {
 
 	private String name;
+	private String receiptId;
 	private String clientId;
 	private String clientName;
 	private String paymentDate;
@@ -10,6 +11,13 @@ public class PrintInfo {
 	private String amountPaid;
 	private String remarks;
 
+	public String getReceiptId() {
+		return receiptId;
+	}
+	public void setReceiptId(String receiptId) {
+		this.receiptId = receiptId;
+	}
+	
 	public String getClientId() {
 		return clientId;
 	}

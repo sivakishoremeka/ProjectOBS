@@ -90,6 +90,8 @@ public class BluetoothChatService {
         ctx = context;
         mPrefs = ctx.getSharedPreferences(PREFS_FILE, 0);
         printinfo = new PrintInfo();
+        
+        printinfo.setReceiptId(mPrefs.getString(PaymentActivity.RESOURCE_ID, "100"));
         printinfo.setName(mPrefs.getString("USER_ID", "user"));
         printinfo.setClientId(mPrefs.getString(PaymentActivity.CLIENT_ID, "clientId"));
         printinfo.setClientName(mPrefs.getString(PaymentActivity.CLIENT_NAME, "clientName"));
