@@ -189,6 +189,7 @@ public class ClientViewActivity extends ListActivity {
 			}
 			Intent intent = new Intent(ClientViewActivity.this, PaymentActivity.class); 
 			Bundle bundle = new Bundle();
+			Log.d("ClientViewActivity-OnPostExecute", result);
 			bundle.putString("Result", result);
 			intent.putExtras(bundle);
 			startActivity(intent); 

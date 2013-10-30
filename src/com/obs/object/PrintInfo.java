@@ -6,6 +6,7 @@ public class PrintInfo {
 	private String receiptId;
 	private String clientId;
 	private String clientName;
+	private String hardwareDetails;
 	private String paymentDate;
 	private String paymentCode;
 	private String amountPaid;
@@ -26,6 +27,13 @@ public class PrintInfo {
 		this.clientId = clientId;
 	}
 
+	public String getHardwareDetails() {
+		return hardwareDetails;
+	}
+
+	public void setHardwareDetails(String hardwareDetails) {
+		this.hardwareDetails = hardwareDetails;
+	}
 	public String getClientName() {
 		return clientName;
 	}
@@ -33,6 +41,7 @@ public class PrintInfo {
 	public void setClientName(String clientName) {
 		this.clientName = clientName;
 	}
+
 
 	public String getPaymentDate() {
 		return paymentDate;

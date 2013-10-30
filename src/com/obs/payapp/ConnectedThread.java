@@ -127,6 +127,8 @@ class ConnectedThread extends Thread {
 			}
 		}
 		PrintData2 +=	    "                        ";
+		PrintData2 +=	    "H/W Details:"+printinfo.getHardwareDetails();
+		PrintData2 +=	    "                        ";
 			if(printinfo.getPaymentCode().equalsIgnoreCase("CA"))
 				PrintData2+=" Mode  : CASH"+"                        ".substring(printinfo.getClientId().length()+13-1);
 			else

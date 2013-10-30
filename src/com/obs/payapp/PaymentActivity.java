@@ -48,6 +48,7 @@ public class PaymentActivity extends Activity {
 	public String mobileno;
 	TextView AccountNo;
 	TextView DisplayName;
+	TextView HardwareDetails;
 	TextView OfficeName;
 	TextView Address;
 	TextView Phone;
@@ -72,6 +73,7 @@ public class PaymentActivity extends Activity {
 	public final static String RESOURCE_ID = "resourceId";
 	public final static String CLIENT_ID = "clientId";
 	public final static String CLIENT_NAME="clientName";
+	public final static String HARDWARE_DETAILS="hardwaredetails";
 	public final static String PAYMENT_CODE = "paymentCode";
 	public final static String AMOUNT_PAID="amountPaid";
 	public final static String REMARKS = "remarks";
@@ -92,6 +94,7 @@ public class PaymentActivity extends Activity {
 
 		AccountNo = (TextView)findViewById(R.id.accountno);
 		DisplayName= (TextView)findViewById(R.id.display_name);
+		HardwareDetails= (TextView)findViewById(R.id.hw_details);
 		OfficeName= (TextView)findViewById(R.id.office);
 		Address= (TextView)findViewById(R.id.addressno);
 		Phone= (TextView)findViewById(R.id.phone);
@@ -114,6 +117,7 @@ public class PaymentActivity extends Activity {
 			ClientId= Integer.parseInt(clientDtls.getString("id"));
 			AccountNo.setText(clientDtls.getString("accountNo"));
 			DisplayName.setText(clientDtls.getString("displayName"));
+			HardwareDetails.setText((clientDtls.getJSONArray("hardwareDetails")).getString(0));
 			OfficeName.setText(clientDtls.getString("officeName"));
 			Address.setText(clientDtls.getString("addressNo"));
 			Phone.setText(clientDtls.getString("phone"));
@@ -135,6 +139,7 @@ public class PaymentActivity extends Activity {
 			payinfo = new PaymentInfo();
 			payinfo.setClientId(ClientId+"");
 			payinfo.setClientName(DisplayName.getText().toString());
+			payinfo.setHardwareDetails(HardwareDetails.getText().toString());
 			payinfo.setDateFormat("dd MMMM yyyy");
 			payinfo.setLocale("en");
 			Date date= new Date();
@@ -232,6 +237,7 @@ public class PaymentActivity extends Activity {
 			        mPrefsEditor.putString(RESOURCE_ID,result+"");
 			        mPrefsEditor.putString(CLIENT_ID,ClientId+"");
 			        mPrefsEditor.putString(CLIENT_NAME,payinfo.getClientName());
+			        mPrefsEditor.putString(HARDWARE_DETAILS,payinfo.getHardwareDetails());
 			        mPrefsEditor.putString(PAYMENT_CODE,payinfo.getPaymentCode());
 			        mPrefsEditor.putString(AMOUNT_PAID,payinfo.getAmountPaid());
 			        mPrefsEditor.putString(REMARKS,payinfo.getRemarks());

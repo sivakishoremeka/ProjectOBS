@@ -10,12 +10,20 @@ public class PaymentInfo {
 		this.clientName = clientName;
 	}
 	private String clientName;
+	private String hardwareDetails;
 	private String dateFormat;
 	private String locale;
 	private String paymentDate;
 	private String paymentCode;
 	private String amountPaid;
 	private String remarks;
+	
+	public String getHardwareDetails() {
+		return hardwareDetails;
+	}
+	public void setHardwareDetails(String hardwareDetails) {
+		this.hardwareDetails = hardwareDetails;
+	}
 	public String getClientId() {
 		return clientId;
 	}

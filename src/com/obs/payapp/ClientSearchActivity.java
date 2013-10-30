@@ -113,7 +113,7 @@ public class ClientSearchActivity extends Activity {
 			HttpClient client = MySSLSocketFactory.getNewHttpClient();// new
 																		// DefaultHttpClient();
 
-			String authenticateRootUrl = "https://spark.openbillingsystem.com/mifosng-provider/api/v1/search?tenantIdentifier=pgcable&query=";
+			String authenticateRootUrl = "https://spark.openbillingsystem.com/mifosng-provider/api/v1/search?query=";
 			//String authenticateRootUrl = context.getString(R.string.login_url);
 
 			HttpGet httpGet = new HttpGet(authenticateRootUrl + id);
@@ -171,6 +171,7 @@ public class ClientSearchActivity extends Activity {
 		    {  
 				Intent intent = new Intent(ClientSearchActivity.this, ClientViewActivity.class); 
 				Bundle bundle = new Bundle();
+				Log.d("ClientSearchActivity-OnPostExecute", result);
 				bundle.putString("Result", result);
 				intent.putExtras(bundle);
 				startActivity(intent); 

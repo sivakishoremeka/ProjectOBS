@@ -95,6 +95,7 @@ public class BluetoothChatService {
         printinfo.setName(mPrefs.getString("USER_ID", "user"));
         printinfo.setClientId(mPrefs.getString(PaymentActivity.CLIENT_ID, "clientId"));
         printinfo.setClientName(mPrefs.getString(PaymentActivity.CLIENT_NAME, "clientName"));
+        printinfo.setClientName(mPrefs.getString(PaymentActivity.HARDWARE_DETAILS, "000000000001"));
         printinfo.setPaymentCode(mPrefs.getString(PaymentActivity.PAYMENT_CODE, "paymentCode"));
         printinfo.setAmountPaid(mPrefs.getString(PaymentActivity.AMOUNT_PAID, "amountPaid"));
         //cname = mPrefs.getString("CNAME", "CNAME");
