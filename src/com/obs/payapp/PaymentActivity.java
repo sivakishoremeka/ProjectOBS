@@ -59,11 +59,12 @@ public class PaymentActivity extends Activity {
 	TextView zip;
 	TextView BalanceAmmount;
 	EditText PayAmount;
+	EditText CheckNumber;
 	Button Pay;
 	Button Print;
 	int ClientId;
 	private ProgressDialog mProgressDialog;
-	RadioButton radioBtn;
+	RadioButton radioBtn_Cash;
 	Context context;
 	PaymentInfo payinfo;
 	PrintInfo printinfo;
@@ -105,10 +106,11 @@ public class PaymentActivity extends Activity {
 		zip= (TextView)findViewById(R.id.zip);
 		BalanceAmmount= (TextView)findViewById(R.id.balance_amount);
 		PayAmount= (EditText)findViewById(R.id.payment_amount);
+		CheckNumber= (EditText)findViewById(R.id.cheque_number);
 		Pay= (Button)findViewById(R.id.Pay);
 		Print= (Button)findViewById(R.id.Print);
-		radioBtn = (RadioButton)findViewById(R.id.cash);
-
+		radioBtn_Cash = (RadioButton)findViewById(R.id.cash);
+         
 		JSONObject clientDtls;
 		try {
 			
@@ -135,6 +137,32 @@ public class PaymentActivity extends Activity {
 
 	public void payBtn_onClick(View v) {
 		// TODO Auto-generated method stub
+		int payamount;
+		boolean validInput= true;
+		Pay.setEnabled(false);
+		try{
+		 payamount = Integer.parseInt(PayAmount.getText().toString());
+		}
+		catch (NumberFormatException e)
+		{
+			payamount = 0;
+		}
+		if(payamount<=0)
+		{
+          validInput= false;
+		  Pay.setEnabled(true);
+          Toast.makeText(this, "Please enter valid amount", Toast.LENGTH_LONG).show();
+		}else if(!radioBtn_Cash.isChecked())
+		{
+			if(CheckNumber.getText().toString().length()==0)
+			{
+				validInput = false;
+				Pay.setEnabled(true);
+		        Toast.makeText(this, "Please enter check Number", Toast.LENGTH_LONG).show();
+						
+			}
+		}
+		if(validInput){
 		try {
 			payinfo = new PaymentInfo();
 			payinfo.setClientId(ClientId+"");
@@ -145,7 +173,7 @@ public class PaymentActivity extends Activity {
 			Date date= new Date();
 			SimpleDateFormat  formater = new SimpleDateFormat("dd MMMM yyyy");
 			payinfo.setPaymentDate(formater.format(date));
-			if(radioBtn.isChecked()){
+			if(radioBtn_Cash.isChecked()){
 				payinfo.setPaymentCode("CA");
 				
 			}
@@ -159,7 +187,7 @@ public class PaymentActivity extends Activity {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		}
 	}
 	public void onClick_printBtn(View v) {
 		// TODO Auto-generated method stub
