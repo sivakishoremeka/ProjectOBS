@@ -62,6 +62,7 @@ public class PaymentActivity extends Activity {
 	EditText CheckNumber;
 	Button Pay;
 	Button Print;
+	Button Cancel;
 	int ClientId;
 	private ProgressDialog mProgressDialog;
 	RadioButton radioBtn_Cash;
@@ -109,6 +110,7 @@ public class PaymentActivity extends Activity {
 		CheckNumber= (EditText)findViewById(R.id.cheque_number);
 		Pay= (Button)findViewById(R.id.Pay);
 		Print= (Button)findViewById(R.id.Print);
+		Cancel= (Button)findViewById(R.id.Cancel);
 		radioBtn_Cash = (RadioButton)findViewById(R.id.cash);
          
 		JSONObject clientDtls;
@@ -189,7 +191,7 @@ public class PaymentActivity extends Activity {
 		}
 		}
 	}
-	public void onClick_printBtn(View v) {
+	public void onClick_cancelBtn(View v) {
 		// TODO Auto-generated method stub
 		try {
 			/*Intent intent = new Intent(PaymentActivity.this, BluetoothChatActivity.class); 
@@ -202,18 +204,26 @@ public class PaymentActivity extends Activity {
 	}
 
 
-	/*protected Void callPayment(PaymentInfo paymentInfo, String id) {
-
+	public void onClick_printBtn(View v) {
 		// TODO Auto-generated method stub
 		try {
-			new AuthenticateTask().execute(paymentInfo,id);
+			 mPrefs = getSharedPreferences(PREFS_FILE, 0);
+		     Log.d("PaymentActivity-printbtnclick",mPrefs.getString(PaymentActivity.RESOURCE_ID, "100"));
+		     Log.d("PaymentActivity-printbtnclick",mPrefs.getString("USER_ID", "user"));
+		     Log.d("PaymentActivity-printbtnclick",mPrefs.getString(PaymentActivity.CLIENT_ID, "clientId"));
+		     Log.d("PaymentActivity-printbtnclick",mPrefs.getString(PaymentActivity.CLIENT_NAME, "clientName"));
+		     Log.d("PaymentActivity-printbtnclick",mPrefs.getString(PaymentActivity.HARDWARE_DETAILS, "000000000001"));
+		     Log.d("PaymentActivity-printbtnclick",mPrefs.getString(PaymentActivity.PAYMENT_CODE, "paymentCode"));
+		     Log.d("PaymentActivity-printbtnclick",mPrefs.getString(PaymentActivity.AMOUNT_PAID, "amountPaid"));
+		        //cname = mPrefs.getString("CNAME", "CNAME");
+			Intent intent = new Intent(PaymentActivity.this, BluetoothChatActivity.class); 
+			startActivity(intent);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
 
-
-	}*/
+	}
 	private class AuthenticateTask extends AsyncTask<PaymentInfo, Void, String> {
 		PaymentInfo paymentInfo;
 

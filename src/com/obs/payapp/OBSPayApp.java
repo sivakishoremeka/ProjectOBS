@@ -48,7 +48,7 @@ import com.obs.utils.MySSLSocketFactory;
 
 
 
-public class LoginActivity extends Activity {
+public class OBSPayApp extends Activity {
 
 	private Button Login;
     private ProgressDialog mProgressDialog;
@@ -91,7 +91,7 @@ public class LoginActivity extends Activity {
 				else
 				{
 					
-					Toast.makeText(LoginActivity.this, "Not valid username or password", Toast.LENGTH_LONG).show();
+					Toast.makeText(OBSPayApp.this, "Not valid username or password", Toast.LENGTH_LONG).show();
 				}
 			}
         });
@@ -118,7 +118,7 @@ public class LoginActivity extends Activity {
 			protected void onPreExecute() {
 				super.onPreExecute();
 				
-				mProgressDialog = new ProgressDialog(LoginActivity.this); 
+				mProgressDialog = new ProgressDialog(OBSPayApp.this); 
 				mProgressDialog.setMessage("Authenticating...");
 				mProgressDialog.show();
 			}
@@ -175,7 +175,7 @@ public class LoginActivity extends Activity {
 		            mPrefsEditor = mPrefs.edit(); 
 		            mPrefsEditor.putString("USER_ID",username);
 		            mPrefsEditor.commit();
-					Intent intent = new Intent(LoginActivity.this, ClientSearchActivity.class); 
+					Intent intent = new Intent(OBSPayApp.this, ClientSearchActivity.class); 
 					startActivity(intent);
 				}
 				else {
@@ -191,7 +191,7 @@ public class LoginActivity extends Activity {
 					AlertDialog dialog =builder.create();
 					dialog.setMessage(resObj.getsErrorMessage());
 					dialog.show();*/
-					Toast.makeText(LoginActivity.this, resObj.getsErrorMessage(), Toast.LENGTH_SHORT).show();
+					Toast.makeText(OBSPayApp.this, resObj.getsErrorMessage(), Toast.LENGTH_SHORT).show();
 				}
 			}
 

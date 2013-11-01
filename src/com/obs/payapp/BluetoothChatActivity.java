@@ -68,7 +68,7 @@ public class BluetoothChatActivity extends Activity {
         if(D) Log.e(TAG, "+++ ON CREATE +++");
 
         // Set up the window layout
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_bluetoothchat);
 
         // Get local Bluetooth adapter
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -79,15 +79,27 @@ public class BluetoothChatActivity extends Activity {
             finish();
             return;
         }
-        Button buttonprint = (Button)findViewById(R.id.btnPrint);       
-        buttonprint.setOnClickListener(PrintstartListener); // Register the onClick listener with the implementation above
+        //start-commenting btnprint btn and calling code section of btnprint onclick on oncreate.
+        
+        //Button buttonprint = (Button)findViewById(R.id.btnPrint);       
+        //buttonprint.setOnClickListener(PrintstartListener); // Register the onClick listener with the implementation above
+    	iOption = 1;
+        // Toast.makeText(BluetoothChatActivity.this, "Print Started", Toast.LENGTH_LONG).show();
+         if (mChatService == null) setupChat();
+			Intent serverIntent = null;
+			serverIntent = new Intent(getBaseContext(), DeviceListActivity.class);
+         startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_INSECURE);
+        //End-commenting btnprint btn and calling code section of btnprint onclick on oncreate.
           
        // Button buttonMag = (Button)findViewById(R.id.btnMagCard);       
        // buttonMag.setOnClickListener(MagCardstartListener);
+        
+        
+       
       
     }
-      
-    private OnClickListener PrintstartListener = new OnClickListener() {
+      //because we directly callin commenting the bellow code
+/*    private OnClickListener PrintstartListener = new OnClickListener() {
         public void onClick(View v) {       
         	iOption = 1;
          // Toast.makeText(BluetoothChatActivity.this, "Print Started", Toast.LENGTH_LONG).show();
@@ -97,10 +109,11 @@ public class BluetoothChatActivity extends Activity {
           startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_INSECURE);
          // connectprint.PrintdataFun();
           }
-    };
+    };*/
      
+    //as of now we are not using magcard so commenting bellow code
     // Create an anonymous implementation of OnClickListener
-    private OnClickListener MagCardstartListener = new OnClickListener() {
+/*    private OnClickListener MagCardstartListener = new OnClickListener() {
         public void onClick(View v) {               	
         	iOption = 2;
         // Toast.makeText(BluetoothChatActivity.this, "Mag Card Started", Toast.LENGTH_LONG).show();
@@ -113,7 +126,7 @@ public class BluetoothChatActivity extends Activity {
         
     };   
     
-   
+  */ 
      @Override
     public void onStart() {
         super.onStart();

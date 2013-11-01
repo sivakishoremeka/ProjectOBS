@@ -18,8 +18,20 @@
             android:layout_marginLeft="70dip"
             android:layout_marginRight="70dip"
             android:layout_marginTop="10dip"
-            android:text="Print" />
+            android:text="Print"
+            android:visibility="gone" />
 
+        <Button android:text="MAG CARD" 
+            android:id="@+id/btnMagCard"
+            style="@style/btnStyleSeagull"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dip"
+            android:layout_marginRight="70dip"
+            android:layout_marginTop="10dip"
+            android:visibility="gone">
+            
+        </Button>
     </TableLayout>
 
     <ListView
@@ -28,6 +40,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:stackFromBottom="true"
+        android:layout_marginTop="10dip"
         android:transcriptMode="alwaysScroll" >
     </ListView>
 

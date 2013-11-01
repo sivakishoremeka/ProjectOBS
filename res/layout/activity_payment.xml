@@ -299,7 +299,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:layout_marginLeft="100dip"
-                android:layout_weight="0.03"
+                android:layout_weight="0.33"
                 android:onClick="payBtn_onClick"
                 android:text="Pay"
                 android:textSize="15sp" />
@@ -312,8 +312,21 @@
                 android:layout_alignBaseline="@+id/Pay"
                 android:layout_alignBottom="@+id/pay"
                 android:layout_margin="20dp"
-                android:layout_weight="0.06"
+                android:layout_weight="0.33"
                 android:onClick="onClick_printBtn"
+                android:text="Print"
+                android:textSize="15sp" />
+             
+             <Button
+                android:id="@+id/Cancel"
+                style="@style/btnStyleSeagull"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/Pay"
+                android:layout_alignBottom="@+id/pay"
+                android:layout_margin="20dp"
+                android:layout_weight="0.33"
+                android:onClick="onClick_cancelBtn"
                 android:text="Cancel"
                 android:textSize="15sp" />
         </LinearLayout>
