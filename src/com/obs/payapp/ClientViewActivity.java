@@ -80,6 +80,8 @@ public class ClientViewActivity extends ListActivity {
 					ListClientObject obj = new ListClientObject();
 					obj.setAccountno(clientDtls.getString("entityAccountNo"));  
 					obj.setDisplayName(clientDtls.getString("entityName"));
+					obj.setAddress(clientDtls.getString("address"));
+					obj.setPhoneno(clientDtls.getString("phone"));
 					arrClientDetails[i]= obj;
 				}
 			}

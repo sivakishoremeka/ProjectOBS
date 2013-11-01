@@ -32,10 +32,14 @@ public class CustomArrayAdapter extends ArrayAdapter<ListClientObject>
 			.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
  
 		View rowView = inflater.inflate(R.layout.client_view_item, parent, false);
-		TextView clientid = (TextView) rowView.findViewById(R.id.client_id);
-		TextView clientname = (TextView) rowView.findViewById(R.id.client_name);
+		TextView clientid = (TextView) rowView.findViewById(R.id.lv_item_client_id);
+		TextView clientname = (TextView) rowView.findViewById(R.id.lv_item_client_name);
+		TextView address = (TextView) rowView.findViewById(R.id.lv_item_address);
+		TextView phoneno = (TextView) rowView.findViewById(R.id.lv_item_phoneno);
 		clientid.setText(values[position].getAccountno());
 		clientname.setText(values[position].getDisplayName());
+		address.setText(values[position].getAddress());
+		phoneno.setText(values[position].getPhoneno());
  		return rowView;
 	}
 }
